@@ -1,22 +1,18 @@
 import React from "react";
 import Card from "../card/card";
-import { exampleShortQuote } from "../../exampledata";
+import { exampleShortQuote, exampleData } from "../../exampledata";
 import "./main.css";
+import { APIHelper } from "../../API";
 
 export default function Main() {
-  function getStockSymbolFromGlobalQuote(globalQuote) {
-    return globalQuote["01. symbol"];
-  }
-
-  function getStockPriceFromGlobalQuote(globalQuote) {
-    return globalQuote["05. price"];
-  }
+  const globalQuote = APIHelper.globalQuote.getGlobalQuote(exampleShortQuote);
 
   return (
     <div id="main-container">
       <Card
-        symbol={getStockSymbolFromGlobalQuote(exampleShortQuote["Global Quote"])}
-        price={getStockPriceFromGlobalQuote(exampleShortQuote["Global Quote"])}
+        timeSeries={APIHelper.timeSeries.getTimeSeries5Min(exampleData)}
+        symbol={APIHelper.globalQuote.getStockSymbol(globalQuote)}
+        price={APIHelper.globalQuote.getStockPrice(globalQuote)}
       />
     </div>
   );
