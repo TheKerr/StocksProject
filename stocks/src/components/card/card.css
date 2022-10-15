@@ -10,6 +10,10 @@
 	box-shadow: 0px 13px 6px -1px black;
 }
 
+.recharts-tooltip-wrapper {
+	background-color: rgba(117, 190, 218, 0.5); 
+}
+
 .card-graph {
 	min-height: 350px;
 	width: 100%;

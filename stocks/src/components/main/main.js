@@ -10,6 +10,8 @@ export default function Main() {
   return (
     <div id="main-container">
       <Card
+	  	width={600}
+		height={325}
         timeSeries={APIHelper.timeSeries.getTimeSeries5Min(exampleData)}
         symbol={APIHelper.globalQuote.getStockSymbol(globalQuote)}
         price={APIHelper.globalQuote.getStockPrice(globalQuote)}
